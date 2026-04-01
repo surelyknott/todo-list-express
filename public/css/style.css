@@ -13,6 +13,7 @@ h1{
 .item{
     align-items: center;
     display: flex;
+    gap: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
@@ -26,12 +27,8 @@ h1{
     margin-right: 0.5rem;
 }
 
-.item span:first-of-type{
-    flex: 1;
-}
-
 .fa-trash{
-    margin-left: 0.5rem;
+    margin-left: 0.25rem;
 }
 
 .completed{
