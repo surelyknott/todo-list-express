@@ -19,6 +19,7 @@
         <% for(let i = 0; i < items.length; i++) { %>
             <% if(items[i].completed !== true) { %>
                 <li class="item">
+                    <input class="todo-toggle" type="checkbox" aria-label="Mark <%= items[i].thing %> complete">
                     <span><%= items[i].thing %></span>
                     <span class="fa fa-trash"></span>
                 </li>
@@ -33,6 +34,7 @@
         <% for(let i = 0; i < items.length; i++) { %>
             <% if(items[i].completed === true) { %>
                 <li class="item">
+                    <input class="todo-toggle" type="checkbox" checked aria-label="Mark <%= items[i].thing %> incomplete">
                     <span class="completed"><%= items[i].thing %></span>
                     <span class="fa fa-trash"></span>
                 </li>

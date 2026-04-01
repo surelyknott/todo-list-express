@@ -11,12 +11,23 @@ h1{
 }
 
 .item{
+    align-items: center;
+    display: flex;
     margin-bottom: 0.5rem;
 }
 
-.item span:first-child,
+.todo-toggle,
+.item span:first-of-type,
 .fa-trash{
     cursor: pointer;
+}
+
+.todo-toggle{
+    margin-right: 0.5rem;
+}
+
+.item span:first-of-type{
+    flex: 1;
 }
 
 .fa-trash{
