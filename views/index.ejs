@@ -20,28 +20,28 @@
 <body>
     <h1>Todo List: </h1>
     <ul class="todoItems">
-    <% for(let i=0; i < items.length; i++) {%>
+    <% for(let i=0; i < items.length; i++) {%> // we use a for loop to iterate over the array of todo items passed to the template, which allows us to generate HTML for each item in the list
         <li class="item">
-            <% if(items[i].completed === true) {%>
-                <span class='completed'><%= items[i].thing %></span>
+            <% if(items[i].completed === true) {%> // we check if the 'completed' field of the current item is true, which indicates that the item is completed, and if so, we render the item with a 'completed' class to style it differently
+                <span class='completed'><%= items[i].thing %></span> // we render the 'thing' field of the current item inside a span element with a 'completed' class, which allows us to style completed items differently from incomplete ones
             <% }else{ %>
-                <span><%= items[i].thing %></span>
+                <span><%= items[i].thing %></span> // if the 'completed' field is not true, we render the 'thing' field of the current item inside a regular span element, which allows us to display incomplete items without any special styling
             <% } %>    
-            <span class='fa fa-trash'></span>
+            <span class='fa fa-trash'></span> // we render a span element with Font Awesome classes to display a trash can icon next to each item, which allows the user to delete items from the list by clicking on the icon
         </li>
     <% } %>
     </ul>
 
-    <h2>Left to do: <%= left %></h2>
+    <h2>Left to do: <%= left %></h2> // we render the number of items left to complete, which is passed to the template as a variable, inside an h2 element, which allows us to display this information prominently on the page
 
     <h2>Add A Todo:</h2>
 
-    <form action="/addTodo" method="POST">
-        <input type="text" placeholder="Thing To Do" name="todoItem">
-        <input type="submit">
+    <form action="/addTodo" method="POST"> // we create a form element with an action attribute set to '/addTodo' and a method attribute set to 'POST', which allows us to submit new todo items to the server when the form is submitted
+        <input type="text" placeholder="Thing To Do" name="todoItem"> // we create an input element of type 'text' with a placeholder attribute to provide a hint to the user about what to enter and a name attribute set to 'todoItem', which allows us to access the value of this input in the server-side code when the form is submitted
+        <input type="submit"> // we create an input element of type 'submit', which creates a submit button that the user can click to submit the form and add a new todo item to the list
     </form>
     
 
-    <script src='js/main.js'></script>
+    <script src='js/main.js'></script> // we include a script element that references an external JavaScript file, which contains the client-side code for handling user interactions with the todo list, such as marking items as completed or deleting items from the list
 </body>
 </html>
