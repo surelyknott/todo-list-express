@@ -1,5 +1,6 @@
 const deleteBtn = document.querySelectorAll('.fa-trash')
-const item = document.querySelectorAll('.item span')
+const item = document.querySelectorAll('.item span:not(.completed):not(.fa-trash)') 
+// we select all span elements that are children of elements with the class 'item' and do not have the class 'completed' or 'fa-trash', which allows us to target only the spans that represent incomplete todo items for adding event listeners to mark them as completed
 const itemCompleted = document.querySelectorAll('.item span.completed')
 
 Array.from(deleteBtn).forEach((element)=>{
@@ -15,7 +16,7 @@ Array.from(itemCompleted).forEach((element)=>{
 })
 
 async function deleteItem(){
-    const itemText = this.parentNode.childNodes[1].innerText
+    const itemText = this.parentNode.querySelector('span').innerText
     try{
         const response = await fetch('deleteItem', {
             method: 'delete',
@@ -34,7 +35,7 @@ async function deleteItem(){
 }
 
 async function markComplete(){
-    const itemText = this.parentNode.childNodes[1].innerText
+    const itemText = this.parentNode.querySelector('span').innerText
     try{
         const response = await fetch('markComplete', {
             method: 'put',
@@ -53,7 +54,7 @@ async function markComplete(){
 }
 
 async function markUnComplete(){
-    const itemText = this.parentNode.childNodes[1].innerText
+    const itemText = this.parentNode.querySelector('span').innerText
     try{
         const response = await fetch('markUnComplete', {
             method: 'put',

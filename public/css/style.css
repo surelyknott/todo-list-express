@@ -1,6 +1,28 @@
 h1{
     color: red;
 }
+
+.todo-section{
+    margin-bottom: 1.5rem;
+}
+
+.todoItems{
+    padding-left: 1.25rem;
+}
+
+.item{
+    margin-bottom: 0.5rem;
+}
+
+.item span:first-child,
+.fa-trash{
+    cursor: pointer;
+}
+
+.fa-trash{
+    margin-left: 0.5rem;
+}
+
 .completed{
     color: gray;
     text-decoration: line-through;
