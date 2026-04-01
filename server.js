@@ -1,6 +1,6 @@
 const express = require('express') // express helps us set up our server and routing
 const app = express()
-const MongoClient = require('mongodb').MongoClient
+const { MongoClient } = require('mongodb')
 const PORT = 2121
 require('dotenv').config()
 
@@ -10,10 +10,16 @@ let db,
     dbName = 'todo'
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
-    .then(client => {
-        console.log(`Connected to ${dbName} Database`)
-        db = client.db(dbName)
+  .then(client => {
+    console.log(`Connected to ${dbName} Database`)
+    db = client.db(dbName)
+
+    app.listen(process.env.PORT || PORT, () => {
+      console.log(`Server running on port ${process.env.PORT || PORT}`) // the server will now not accept requests until it has connected to the database
     })
+  })
+  .catch(error => console.error(error))
+
     
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -86,8 +92,4 @@ app.delete('/deleteItem', (request, response) => {
     })
     .catch(error => console.error(error))
 
-})
-
-app.listen(process.env.PORT || PORT, ()=>{
-    console.log(`Server running on port ${PORT}`)
 })
