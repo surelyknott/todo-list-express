@@ -2,9 +2,9 @@
   "name": "rap-name-api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js", // we specify that the main entry point of our application is the server.js file, which contains the code for setting up and running our Express server
+  "main": "server.js", 
   "scripts": {
-    "start": "node server.js", // we define a start script that runs the server.js file using Node.js, which allows us to start the server by running 'npm start' in the terminal
+    "start": "node server.js", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
